@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryGirl.define do  
 
   factory :order do
     restaurant_name "Restaurant"
@@ -8,5 +8,9 @@ FactoryGirl.define do
   factory :user do
     name "MyString"
   end
-end
 
+  factory :meal do
+    name "Ramen"
+    price "9.99"
+  end
+end
