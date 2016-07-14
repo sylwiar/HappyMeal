@@ -1,0 +1,19 @@
+<h1>Meals</h1>
+<h3><%= link_to "New meal", new_meal_path %></h3>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @meals.each do |order| %>
+  <tr>
+    <td><%= meal.name %></td>
+    <td><%= meal.price %></td>
+    <td><%= link_to "Edit", edit_meal_path(meal) %></td>
+  </tr>
+<% end %>
+</table>

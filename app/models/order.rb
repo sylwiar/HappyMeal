@@ -6,4 +6,7 @@ class Order < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :meals
   has_many :users, through: :meals
+
+  scope :active, -> { where(status: 'Draft') }
+  scope :history, -> { where.not(status: 'Draft') }
 end

@@ -1,0 +1,22 @@
+<h1>Orders</h1>
+<h3><%= link_to "New order", new_order_path %></h3>
+<h3><%= button_to "Active", new_order_path %></h3>
+<h3><%= button_to "History", new_order_path %></h3>
+ 
+<table>
+  <tr>
+    <th>Restaurant name</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.restaurant_name %></td>
+    <td><%= order.status %></td>
+    <td><%= link_to "Edit", edit_order_path(order) %></td>
+    <td><%= link_to "Add new meal", new_meal_path %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController 
   def index
-    @orders = Order.all
+    @orders = params[:type] == "history" ? Order.history : Order.active
   end
 
   def new
@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     @order = Order.new(restaurant_name: order_params[:restaurant_name], status: 'Draft')
  
     if @order.save
-      redirect_to @order
+      redirect_to orders_path
     else
       render "new"
     end
@@ -23,8 +23,8 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    if @order.update(order_params)
-      redirect_to @order
+    if @order.update(status: order_params[:status])
+      redirect_to orders_path
     else
       render "edit"
     end
