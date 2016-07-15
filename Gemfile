@@ -27,6 +27,7 @@ gem 'bootstrap-sass'
 
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-facebook'
 gem 'figaro'
 
 # Use ActiveModel has_secure_password

@@ -7,12 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
+  <%= render 'application/header' %>
   <div class="container">
-    <%= render 'layouts/flash' %>
-<!--     <p class="description">
-      Application that coordinates meal ordering for Monterail employees
-    </p> -->
+    <%= render 'application/flash' %>
 
 <%= yield %>
 
