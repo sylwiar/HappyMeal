@@ -1,7 +1,8 @@
-Meal ordering coordination system - Happy Meal
+= Happy Meal
+Meal ordering coordination system
 
-Authorization via Facebook or Github account (not every person has Facebook account ;))
-Creating new order with status "Draft" as default
-Changing status of order
-Listing orders by active and history status
-Adding meal to order (after showing order)
+* Authorization via Facebook or Github account (not every person has Facebook account ;))
+* Creating new order with status "Draft" as default
+* Changing status of order
+* Listing orders by active and history status
+* Adding meal to order (after showing order)
