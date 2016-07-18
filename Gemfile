@@ -14,7 +14,6 @@ gem 'bootstrap-sass'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
-gem 'figaro'
 gem 'haml'
 
 group :development, :test do
