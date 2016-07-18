@@ -1,7 +1,15 @@
 class OrdersController < ApplicationController
   before_action :logged_in
+  # def index
+  #   @orders = params[:type] == "history" ? Order.history : Order.active
   def index
-    @orders = params[:type] == "history" ? Order.history : Order.active
+    @orders = Order.all
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @meals = @order.meals
+    @meal = Meal.new
   end
 
   def new
@@ -31,7 +39,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  private
   def order_params
     params.require(:order).permit(:restaurant_name, :status) 
   end

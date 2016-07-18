@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in
-    redirect_to root_path if session[:id].nil?
+    redirect_to root_path if session[:user_id].nil?
   end
 end

@@ -1,0 +1,9 @@
+- if current_user
+  %h3= "Welcome to meal ordering coordination system Happy Meal"
+  %br/
+  %h3
+    .btn.btn-default= link_to "Orders", orders_path
+  %h3
+    .btn.btn-default= link_to "New order", new_order_path
+- else
+  %h3= "To continue please log in via Facebook or Github account"

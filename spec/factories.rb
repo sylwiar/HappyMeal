@@ -1,9 +1,4 @@
-FactoryGirl.define do  factory :authorization do
-    provider "MyString"
-uid "MyString"
-user_id 1
-  end
-  
+FactoryGirl.define do    
 
   factory :order do
     restaurant_name "Restaurant"
@@ -16,6 +11,8 @@ user_id 1
 
   factory :meal do
     name "Ramen"
-    price "9.99"
+    price 29.00
+    order_id
+    user_id
   end
 end

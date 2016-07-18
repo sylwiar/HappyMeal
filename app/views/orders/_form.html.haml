@@ -1,0 +1,16 @@
+= form_for @order do |f|
+  - if @order.errors.any?
+    #error_explanation
+      .alert.alert-danger
+        The form contains #{pluralize(@order.errors.count, "error")}.
+      %ul
+        - @order.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    = f.label :restaurant_name
+    = f.text_field :restaurant_name, class: 'form-control'
+  .form-group
+    = f.label :status
+    = f.select :status, ['Draft', 'Finalized', 'Ordered', 'Delivered']
+  .form-group
+    = f.submit class: 'form-control'

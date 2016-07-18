@@ -1,0 +1,23 @@
+%h1
+  Order from #{@order.restaurant_name}
+%h2 Details
+%p
+  %strong Restaurant:
+  = @order.restaurant_name
+  %br/
+  %strong Status:
+  = @order.status
+  %br/
+%h2 Meals
+%p
+%table.table.table-striped
+  %tr
+    %th Name
+    %th Price
+  - for meal in @meals
+    %tr
+      %td= meal.name
+      %td= meal.price
+  - end unless @meals.blank?
+= if @order.status == "Draft" and @meals.blank? then render 'form2' end
+%p= link_to 'Back', orders_path

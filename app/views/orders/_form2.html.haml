@@ -1,0 +1,21 @@
+%h3 Add meal to order
+= form_for [@order, @meal] do |f|
+  - if @meal.errors.any?
+    #error_explanation
+      .alert.alert-danger
+        The form contains #{pluralize(@meal.errors.count, "error")}.
+      %ul
+        - @meal.errors.full_messages.each do |msg|
+          %li= msg
+  = f.hidden_field :order_id, value: @order.id
+  = f.hidden_field :user_id, value: current_user
+
+  .container
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :price
+      = f.text_field :price, class: 'form-control'
+    .form-group
+      = f.submit class: 'form-control'

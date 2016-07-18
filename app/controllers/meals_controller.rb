@@ -1,24 +1,18 @@
 class MealsController < ApplicationController
-  def index
-    @meals = Meal.where(order_id: params[:order_id])
-  end
-
-  def new
-    @meal = Meal.new
-  end
+  before_action :logged_in
 
   def create
     @meal = Meal.new(meal_params)
- 
     if @meal.save
-      redirect_to @meal
+      flash[:notice] = "Meal added!"
+      redirect_to @meal.order
     else
-      render "new"
+      flash[:error] = @meal.errors.full_messages.join(", ")
+      redirect_to @meal.order
     end
   end
 
-  private
   def meal_params
-    params.require(:meal).permit(:name, :price) 
+    params.require(:meal).permit(:name, :price, :order_id, :user_id) 
   end
 end

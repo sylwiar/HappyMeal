@@ -1,0 +1,19 @@
+%h1 Orders
+%h3
+  %div.btn-group
+    .btn.btn-default= link_to "Active", '#', :id => 'active'
+    .btn.btn-default= link_to "History", '#', :id => 'history'
+%table.table.table-striped
+  %tr
+    %th Restaurant name
+    %th Status
+    %th{colspan: 2} Actions
+  - for order in @orders
+    %tr#mytable{:class => "#{if order.status == "Draft" then order.status else "Nondraft" end}", :style => "visibility: visible"}
+      %td= order.restaurant_name
+      %td= order.status
+      %td= link_to "Edit", edit_order_path(order)
+      %td= link_to "Show", order
+  - end unless @orders.blank?
+%h3
+  .btn.btn-default= link_to "New order", new_order_path

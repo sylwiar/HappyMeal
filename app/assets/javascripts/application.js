@@ -12,6 +12,32 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function() {
+  $('#active').click(function(event){
+    var cols = document.getElementsByClassName("Draft");
+    for(i=0; i<cols.length; i++) {
+      cols[i].style.visibility = "visible";
+    }
+    event.preventDefault();
+    var cols2 = document.getElementsByClassName("Nondraft");
+    for(i=0; i<cols2.length; i++) {
+      cols2[i].style.visibility = "collapse";
+    }
+    event.preventDefault();
+  });
+  $('#history').click(function(event){
+    var cols = document.getElementsByClassName("Draft");
+    for(i=0; i<cols.length; i++) {
+      cols[i].style.visibility = "collapse";
+    }
+    event.preventDefault();
+    var cols2 = document.getElementsByClassName("Nondraft");
+    for(i=0; i<cols2.length; i++) {
+      cols2[i].style.visibility = "visible";
+    }
+    event.preventDefault();
+  });
+});
